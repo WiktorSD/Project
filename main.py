@@ -14,6 +14,7 @@ from views import bs_post
 from views import prezydent
 from emails import get_email
 from database import cookies
+from views import karas
 
 app = FastAPI()
 # templates Init
@@ -33,6 +34,7 @@ def configure_routers():
     app.include_router(bs_post.router)
     app.include_router(prezydent.router)
     app.mount('/static', StaticFiles(directory='static'), name='static')
+    app.include_router(karas.router)
 
 
 @app.get("/")
